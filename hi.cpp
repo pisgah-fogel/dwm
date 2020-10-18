@@ -63,8 +63,13 @@ int main (int argc, char** argv) {
 			    y=event.xbutton.y;
 
 			strcpy(text,"X is FUN!");
-			XSetForeground(dis,gc,rand()%event.xbutton.x%255);
+            XSetForeground(dis,gc,0xff0000); // red
+            XSetBackground(dis,gc,0x000000);
 			XDrawString(dis,win,gc,x,y, text, strlen(text));
+            XRectangle rect = {.x=x, .y=y, .width=100, .height=100};
+            //XDrawRectangles(dis,win,gc,&rect, 1);
+            XFillRectangles(dis,win,gc,&rect, 1);
+
 		}
         if (event.type==FocusOut) {
             close_x();
@@ -96,6 +101,8 @@ void init_x() {
 	XSetForeground(dis,gc,black);
 	XClearWindow(dis, win);
 	XMapRaised(dis, win);
+    printf("White pixel: %x\n", white);
+    printf("Black pixel: %x\n", black);
 };
 
 void close_x() {
@@ -106,5 +113,6 @@ void close_x() {
 };
 
 void redraw() {
+    //XClearArea(dis, win, 0, 0, 100, 100, false);
 	XClearWindow(dis, win);
 };
