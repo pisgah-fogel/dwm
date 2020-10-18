@@ -17,6 +17,9 @@ Alt+Space Focus on window
 Alt+Drag(Left click) Move window
 Alt+Drag(Right click) Resize window
 Alt+Shift+Space Make window tiles again
+Alt+i / Alt+Shift+i switch between horizontal and vertical tiling
+Alt+j/k select different windows
+Alt+h/l resize tiles windows
 
 Requirements
 ------------

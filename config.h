@@ -61,14 +61,14 @@ static const char *termcmd[]  = { "cool-retro-term", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_x,      spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_f,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } }, // Start dmenu
+	{ MODKEY,                       XK_x,      spawn,          {.v = termcmd } }, // Start terminal
+	{ MODKEY,                       XK_f,      togglebar,      {0} }, // Fullscreen
+	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } }, // Focus next window
+	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } }, // Focus previous window`
+	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } }, // Switch to vertical split
+	{ MODKEY,                       XK_i,      incnmaster,     {.i = -1 } }, // Switch to horizontal split
+	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} }, // resize (tiled) window
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
