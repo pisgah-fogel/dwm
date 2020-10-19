@@ -40,6 +40,7 @@
 #include <X11/extensions/Xinerama.h>
 #endif /* XINERAMA */
 #include <X11/Xft/Xft.h>
+#include <time.h>
 
 #include "drw.h"
 #include "util.h"
@@ -1987,8 +1988,10 @@ updatesizehints(Client *c)
 void
 updatestatus(void)
 {
-	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
-		strcpy(stext, "dwm-"VERSION);
+	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext))) {
+		int t = time(NULL);
+		sprintf(stext, "%d", t);
+	}
 	drawbar(selmon);
 }
 
